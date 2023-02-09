@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         新东方词库单词字体放大
 // @namespace    http://tampermonkey.net/
-// @version      0.2.5
+// @version      0.2.7
 // @description  https://www.koolearn.com/单词字体放大
 // @author       You
 // @match        https://www.koolearn.com/dict/*
@@ -18,7 +18,7 @@
   for (const element of document.querySelector(".word-box").querySelectorAll('.word')) {
     element.style.fontSize = "40px"
     element.style.padding = "10px"
-    element.style.margin = "30px 0"
+    element.style.margin = "30px 15px"
   }
 
   //单词详情
@@ -29,10 +29,21 @@
   document.querySelector(".details-content-title-box p").style.fontSize = "50px"
   document.querySelector(".details-content-title-box p").style.lineHeight = "70px"
   //例句
-  document.querySelectorAll(".details-content-title-box div ol")[1].style.fontSize = "50px"
-  document.querySelectorAll(".details-content-title-box div ol")[1].style.lineHeight = "70px"
-  for (const element of document.querySelectorAll(".details-content-title-box div ol")) {
+  var boxdivol = document.querySelectorAll(".details-content-title-box div ol")
+  //for (const elementelement of boxdivol[boxdivol.length-1].querySelectorAll("li")) {
+  //    elementelement.style.fontSize = "50px"
+  //    elementelement.style.lineHeight = "70px"
+  //    elementelement.style.margin = "40px 0"
+  //}
+  //for (const elementelement of boxdivol[boxdivol.length-2].querySelectorAll("li")) {
+  //    elementelement.style.fontSize = "50px"
+  //    elementelement.style.lineHeight = "70px"
+  //   elementelement.style.margin = "40px 0"
+  //}
+  for (const element of boxdivol) {
     for (const elementelement of element.querySelectorAll("li")) {
+      elementelement.style.fontSize = "50px"
+      elementelement.style.lineHeight = "70px"
       elementelement.style.margin = "40px 0"
     }
   }
