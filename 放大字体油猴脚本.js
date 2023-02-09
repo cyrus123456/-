@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         新东方词库单词字体放大
 // @namespace    http://tampermonkey.net/
-// @version      0.2.8
+// @version      0.2.9
 // @description  https://www.koolearn.com/单词字体放大
 // @author       You
 // @match        https://www.koolearn.com/dict/*
@@ -28,7 +28,7 @@
   //声音
   for (const elementelement of document.querySelectorAll(".word-spell-audio")) {
     elementelement.style.height = "70px"
-    elementelement.style.width = "40px"
+    elementelement.style.width = "200px"
     elementelement.style.margin = "0 20px"
     elementelement.style.borderRadius = '5px'
     elementelement.style.backgroundColor = '#ffffff'
