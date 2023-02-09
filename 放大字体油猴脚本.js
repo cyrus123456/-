@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         新东方词库单词字体放大
 // @namespace    http://tampermonkey.net/
-// @version      0.2.4
+// @version      0.2.5
 // @description  https://www.koolearn.com/单词字体放大
 // @author       You
 // @match        https://www.koolearn.com/dict/*
@@ -31,9 +31,8 @@
   //例句
   document.querySelectorAll(".details-content-title-box div ol")[1].style.fontSize = "50px"
   document.querySelectorAll(".details-content-title-box div ol")[1].style.lineHeight = "70px"
-  for (const element of document.querySelectorAll(".details-content-title-box div ol")[1].querySelectorAll("li")) {
+  for (const element of document.querySelectorAll(".details-content-title-box div ol")) {
     for (const elementelement of element.querySelectorAll("li")) {
-
       elementelement.style.margin = "40px 0"
     }
   }
