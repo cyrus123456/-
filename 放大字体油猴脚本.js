@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         新东方词库单词字体放大
 // @namespace    http://tampermonkey.net/
-// @version      0.3.2
+// @version      0.3.5
 // @description  https://www.koolearn.com/单词字体放大
 // @author       You
 // @match        https://www.koolearn.com/dict/*
@@ -14,48 +14,58 @@
 (function () {
   'use strict';
   // Your code here...
+  if (typeof window.orientation !== 'undefined') {
+    // 当前设备是移动设备
 
-  //单词列表放大
-  for (const element of document.querySelector(".word-box").querySelectorAll('.word')) {
-    element.style.fontSize = "40px"
-    element.style.padding = "10px"
-    element.style.margin = "30px 15px"
-  }
+    //单词列表放大
+    for (const element of document.querySelector(".word-box").querySelectorAll('.word')) {
+      element.style.fontSize = "40px"
+      element.style.padding = "10px"
+      element.style.margin = "30px 15px"
+    }
 
-  //单词详情
-  //广告
-  document.querySelector(".content-box iframe").style.display = 'none'
-  //音标
-  for (const elementelement of document.querySelectorAll(".word-spell")) {
-    elementelement.style.fontSize = "40px"
-    elementelement.style.lineHeight = "60px"
-  }
-  //声音
-  for (const elementelement of document.querySelectorAll(".word-spell-audio")) {
-    elementelement.style.height = "70px"
-    elementelement.style.width = "200px"
-    elementelement.style.margin = "0 20px"
-    elementelement.style.borderRadius = '5px'
-    elementelement.style.backgroundColor = '#ffffff'
-  }
-  //翻译
-  //document.querySelectorAll(".details-content-title-box p").style.fontSize = "50px"
-  // document.querySelectorAll(".details-content-title-box p").style.lineHeight = "70px"
-  for (const elementelement of document.querySelectorAll(".details-content-title-box p")) {
-    elementelement.style.fontSize = "50px"
-    elementelement.style.lineHeight = "70px"
-  }
-  //例句
-  var boxdivol = document.querySelectorAll(".details-content-title-box div ol")
-  for (const element of boxdivol) {
-    for (const elementelement of element.querySelectorAll("li")) {
+    //单词详情
+    //广告
+    document.querySelector(".content-box iframe").style.display = 'none'
+    //音标
+    for (const elementelement of document.querySelectorAll(".word-spell")) {
+      elementelement.style.fontSize = "40px"
+      elementelement.style.lineHeight = "60px"
+      elementelement.style.margin = "20px  0"
+
+    }
+    //声音
+    for (const elementelement of document.querySelectorAll(".word-spell-audio")) {
+      elementelement.style.height = "70px"
+      elementelement.style.width = "200px"
+      elementelement.style.margin = "0 20px"
+      elementelement.style.borderRadius = '5px'
+      elementelement.style.backgroundColor = '#ffffff'
+    }
+    //翻译
+    //document.querySelectorAll(".details-content-title-box p").style.fontSize = "50px"
+    // document.querySelectorAll(".details-content-title-box p").style.lineHeight = "70px"
+    for (const elementelement of document.querySelectorAll(".details-content-title-box p")) {
       elementelement.style.fontSize = "50px"
       elementelement.style.lineHeight = "70px"
-      elementelement.style.margin = "40px 0"
     }
+    //例句
+    var boxdivol = document.querySelectorAll(".details-content-title-box div ol")
+    for (const element of boxdivol) {
+      for (const elementelement of element.querySelectorAll("li")) {
+        elementelement.style.fontSize = "50px"
+        elementelement.style.lineHeight = "70px"
+        elementelement.style.margin = "40px 0"
+      }
+    }
+    //单词
+    document.querySelector(".content-wrap").querySelector(".left-content").querySelector(".word-title").querySelector(".word-spell").style.fontSize = "100px"
+    document.querySelector(".content-wrap").querySelector(".left-content").querySelector(".word-title").querySelector(".word-spell").style.lineHeight = "120px"
+    document.querySelector(".content-wrap").querySelector(".left-content").querySelector(".word-title").querySelector(".word-spell").style.margin = "20px"
+
+
+
   }
-  //单词
-  document.querySelector(".content-wrap").querySelector(".left-content").querySelector(".word-title").querySelector(".word-spell").style.fontSize = "100px"
 
   //$("#left-content").$("*").css({ "cssText": "font-size:250px !important" });
   //打印
